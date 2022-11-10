@@ -23,9 +23,9 @@ Project your project’s budget with projectify today!
 <img width="500" alt="Screen Shot 2022-11-10 at 3 16 13 PM" src="https://user-images.githubusercontent.com/73118206/201214066-a9b05728-d24a-43c1-8cb9-6fb0446b0535.png">
  
 ## IMPLEMENTATION TIMELINE
-Thurs / Fri: Setup project. Research on implementing different features
-Weekend: Work on getting JSON preloaded with cost data. Create classes. Display Charts
-Monday: Get web app to display charts
-Tuesday: Continue chart display and functionality
-Wednesday: Styling and double-checking functionality. Complete bonus features
-Thursday: Polish project
+- Thurs / Fri: Setup project. Research on implementing different features
+- Weekend: Work on getting JSON preloaded with cost data. Create classes. Display Charts
+- Monday: Get web app to display charts
+- Tuesday: Continue chart display and functionality
+- Wednesday: Styling and double-checking functionality. Complete bonus features
+- Thursday: Polish project. Present.
