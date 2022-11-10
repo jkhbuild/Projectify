@@ -1,6 +1,6 @@
 # Projectify
 ## DESCRIPTION
-Projectify is a single-page, construction budget generating webapp that aids real-estate developers in understanding cost feasibility of a project at concept. Predict project costs by inputting square footage of the project area and applying $/SF rates based on construction type (medical office, office, warehouse). All data is visualized on a dynamic bar chart that can be adjusted to understand where scope reduction is needed.
+Projectify is a single-page, construction budget generating webapp that aids real-estate developers and prospective tenants in understanding cost feasibility of a project at concept. Predict project costs by inputting square footage of the project area and applying $/SF rates based on construction type (medical office, office, warehouse). All data is visualized on a dynamic bar chart that can be adjusted to understand where scope reduction is needed.
 <br>
 <br>
 Ready to ask the bank for a loan, or have a presentation to your project's governing town/village? 
