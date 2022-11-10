@@ -13,7 +13,9 @@ TECHNOLOGIES
 •	Vanilla Javascript
 •	Webpack
 •	Javascript Libararies
+
 WIREFRAME
+<img width="1026" alt="Screen Shot 2022-11-10 at 3 16 13 PM" src="https://user-images.githubusercontent.com/73118206/201214066-a9b05728-d24a-43c1-8cb9-6fb0446b0535.png">
  
 IMPLEMENTATION TIMELINE
 •	Thurs / Fri: Setup project. Research on implementing different features
