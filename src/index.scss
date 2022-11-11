@@ -1,0 +1,8 @@
+@import "./styles/reset.scss";
+
+.sidebarwrapper .sidebar {
+    position: fixed;
+    width: 200px;
+    height: 800px;
+    background: lightgray;
+}

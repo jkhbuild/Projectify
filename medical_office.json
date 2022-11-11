@@ -1,0 +1,58 @@
+{
+    "rates": {
+        "01-generalRequirements": "10",
+        "02-demoltion": "10",
+        "03-concrete": "10",
+        "04-masonry": "10",
+        "05-metals": "10",
+        "06-woodAndPlastics": "10",
+        "07-thermalAndMoistureProtection": "10",
+        "08-openings": "10",
+        "09-finishes": "10",
+        "10-specialties": "10",
+        "11-equipment": "10",
+        "12-furnishings": "10",
+        "13-specialConstruction": "10",
+        "14-conveyingSystems": "10",
+        "15-mechanicalAndPlumbing": "10",
+        "16-electrical": "10"
+    },
+
+    "material": {
+        "01-generalRequirements": ".60",
+        "02-demoltion": ".60",
+        "03-concrete": ".60",
+        "04-masonry": ".60",
+        "05-metals": ".60",
+        "06-woodAndPlastics": ".60",
+        "07-thermalAndMoistureProtection": ".60",
+        "08-openings": ".60",
+        "09-finishes": ".60",
+        "10-specialties": ".60",
+        "11-equipment": ".60",
+        "12-furnishings": ".60",
+        "13-specialConstruction": ".60",
+        "14-conveyingSystems": ".60",
+        "15-mechanicalAndPlumbing": ".60",
+        "16-electrical": ".60"
+    },
+
+    "labor": {
+        "01-generalRequirements": ".40",
+        "02-demoltion": ".40",
+        "03-concrete": ".40",
+        "04-masonry": ".40",
+        "05-metals": ".40",
+        "06-woodAndPlastics": ".40",
+        "07-thermalAndMoistureProtection": ".40",
+        "08-openings": ".40",
+        "09-finishes": ".40",
+        "10-specialties": ".40",
+        "11-equipment": ".40",
+        "12-furnishings": ".40",
+        "13-specialConstruction": ".40",
+        "14-conveyingSystems": ".40",
+        "15-mechanicalAndPlumbing": ".40",
+        "16-electrical": ".40"
+    }  
+}
