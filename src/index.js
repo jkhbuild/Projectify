@@ -29,10 +29,8 @@ if (form) form.addEventListener("submit", createBudget);
 function createBudget(e) {
   e.preventDefault();
 
-  const squareFootage = document.getElementsById("sf").value;
-  const budget = document.getElementsById("budget").value;
-  console.log(squareFootage);
-  console.log(budget);
+  const squareFootage = document.getElementById("sf").value;
+  const budget = document.getElementById("budget").value;
 }
 
 //
