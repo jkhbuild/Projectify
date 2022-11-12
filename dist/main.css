@@ -48,9 +48,42 @@ input[type=submit] {
   cursor: pointer;
 }
 
-.sidebarwrapper .sidebar {
-  position: fixed;
-  width: 200px;
-  height: 800px;
-  background: lightgray;
+body {
+  background-color: lavenderblush;
+}
+
+.top-page {
+  display: block;
+}
+
+.top-page .title {
+  font-family: sans-serif;
+  font-size: 20px;
+}
+
+.sidebar {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 50px;
+  height: 1250px;
+  background-color: rgb(10, 10, 95);
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.sidebar ul {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar ul li {
+  margin-top: 15px;
+}
+
+.userinput {
+  display: block;
+  position: relative;
 }
