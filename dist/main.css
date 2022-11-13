@@ -87,3 +87,8 @@ body {
   display: block;
   position: relative;
 }
+
+.main-chart {
+  border: rgb(10, 10, 95);
+  border-width: 2px;
+}
