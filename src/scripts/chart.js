@@ -54,8 +54,22 @@ function createBudget(e) {
 
     svg.append("g").call(d3.axisLeft(y));
   }
-  console.log(yAxis);
+
   createAxisLeft(Data);
 
   //Creating x-Axis
+  let x = d3.scaleBand().range([0, 500]).padding(0.2);
+
+  function createAxisBottom(data) {
+    x.domain(xAxis);
+
+    const text = svg
+      .append("g")
+      .attr("transform", `translate(0, 500)`)
+      .call(d3.axisBottom(x));
+  }
+
+  createAxisBottom(Data);
+
+  //Creating bars
 }
