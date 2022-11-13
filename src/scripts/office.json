@@ -1,20 +1,20 @@
 {
     "rates": {
         "01-generalRequirements": 10,
-        "02-demoltion": "10",
-        "03-concrete": "10",
-        "04-masonry": "10",
-        "05-metals": "10",
-        "06-woodAndPlastics": "10",
-        "07-thermalAndMoistureProtection": "10",
-        "08-openings": "10",
-        "09-finishes": "10",
-        "10-specialties": "10",
-        "11-equipment": "10",
-        "12-furnishings": "10",
-        "13-specialConstruction": "10",
-        "14-conveyingSystems": "10",
-        "15-mechanicalAndPlumbing": "40",
-        "16-electrical": "10"
+        "02-demoltion": 10,
+        "03-concrete": 10,
+        "04-masonry": 10,
+        "05-metals": 10,
+        "06-woodAndPlastics": 10,
+        "07-thermalAndMoistureProtection": 10,
+        "08-openings": 10,
+        "09-finishes": 10,
+        "10-specialties": 10,
+        "11-equipment": 10,
+        "12-furnishings": 10,
+        "13-specialConstruction": 10,
+        "14-conveyingSystems": 10,
+        "15-mechanicalAndPlumbing": 40,
+        "16-electrical": 10
     }
 }

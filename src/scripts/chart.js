@@ -27,7 +27,8 @@ let squareFootage;
 function createBudget(e) {
   e.preventDefault();
 
-  squareFootage = document.getElementById("sf").value;
+  // squareFootage = document.getElementById("sf").value;
+  squareFootage = 100;
   const budget = document.getElementById("budget").value;
   createAxisLeft(Data);
 
@@ -46,11 +47,7 @@ console.log(yAxis);
 
 // rates * squarefootage
 for (let i = 0; i < yAxis.length; i++) {
-  console.log(Number(yAxis[i]));
-  console.log(typeof yAxis[i]);
-  console.log(Number(squareFootage));
-  console.log(typeof squareFootage);
-  yAxis[i] = parseInt(yAxis[i]) * parseInt(squareFootage);
+  yAxis[i] *= squareFootage;
 }
 console.log(yAxis);
 
