@@ -1,4 +1,3 @@
-import Example from "./scripts/example";
 import "./scripts/chart";
 import Data from "./scripts/office.json";
 

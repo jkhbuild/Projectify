@@ -25,14 +25,14 @@ if (form) form.addEventListener("submit", createBudget);
 // user input event handler
 function createBudget(e) {
   e.preventDefault();
-
   const squareFootage = document.getElementById("sf").value;
   const budget = document.getElementById("budget").value;
 
   // y-Axis values
+  console.log(Data.rates);
   const yAxis = Object.values(Data.rates);
   for (let i = 0; i < yAxis.length; i++) {
-    yAxis[i] *= squareFootage.value;
+    yAxis[i] *= squareFootage;
   }
 
   // x-Axis values
@@ -46,7 +46,7 @@ function createBudget(e) {
     .select("#main-chart")
     .append("svg")
     .attr("width", 500)
-    .attr("height", 50000)
+    .attr("height", 500)
     .attr("transform", "translate(" + 100 + "," + 100 + ")");
 
   // Creating y-Axis
@@ -96,7 +96,7 @@ function createBudget(e) {
       .duration(750)
       .attr("y", (d) => yScale(yAxis))
       .attr("height", (d) => HEIGHT - yScale(d.value));
-    console.log(y);
+    console.log(yScale);
   }
 
   createBars(Data);
