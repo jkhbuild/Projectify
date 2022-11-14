@@ -32,44 +32,72 @@ function createBudget(e) {
   // y-Axis values
   const yAxis = Object.values(Data.rates);
   for (let i = 0; i < yAxis.length; i++) {
-    yAxis[i] *= squareFootage;
+    yAxis[i] *= squareFootage.value;
   }
 
   // x-Axis values
   const xAxis = Object.keys(Data.rates);
 
   // Creating SVG
+  let HEIGHT = 500;
+  let WIDTH = 500;
+  let margin = { top: 30, right: 0, bottom: 60, left: 30 };
   let svg = d3
     .select("#main-chart")
     .append("svg")
     .attr("width", 500)
-    .attr("height", 800)
+    .attr("height", 50000)
     .attr("transform", "translate(" + 100 + "," + 100 + ")");
 
   // Creating y-Axis
-  let y = d3.scaleLinear().range([500, 0]);
+  let yScale = d3.scaleLinear().range([500, 0]);
 
   function createAxisLeft(data) {
-    y.domain([0, d3.max(yAxis)]).nice();
+    yScale.domain([0, d3.max(yAxis)]).nice();
 
-    svg.append("g").call(d3.axisLeft(y));
+    svg.append("g").call(d3.axisLeft(yScale));
   }
-
+  console.log(yAxis);
+  console.log(xAxis);
   createAxisLeft(Data);
 
   //Creating x-Axis
-  let x = d3.scaleBand().range([0, 500]).padding(0.2);
+  let xScale = d3.scaleBand().range([0, 500]).padding(0.2);
 
   function createAxisBottom(data) {
-    x.domain(xAxis);
+    xScale.domain(xAxis);
 
     const text = svg
       .append("g")
       .attr("transform", `translate(0, 500)`)
-      .call(d3.axisBottom(x));
+      .call(d3.axisBottom(xScale));
   }
 
   createAxisBottom(Data);
 
-  //Creating bars
+  function createBars(data) {
+    let bars = svg
+      .selectAll(".bars")
+      .data(xAxis)
+      .enter()
+      .append("g")
+      .attr("class", "bars")
+      .style("opacity", 1);
+
+    bars
+      .append("rect")
+      .attr("class", "bar")
+      .attr("x", xAxis)
+      .attr("y", 0)
+      .attr("width", xScale.bandwidth())
+      .attr("height", 0)
+      .style("fill", "steelblue")
+      .transition()
+      .duration(750)
+      .attr("y", (d) => yScale(yAxis))
+      .attr("height", (d) => HEIGHT - yScale(d.value));
+    console.log(y);
+  }
+
+  createBars(Data);
 }

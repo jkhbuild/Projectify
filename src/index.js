@@ -3,7 +3,6 @@ import "./scripts/chart";
 import Data from "./scripts/office.json";
 
 // variable to store all x axis (construction trades)
-//
 
 // document.addEventListener("DOMContentLoaded", () => {
 //   const main = document.getElementById("main");
