@@ -1,91 +1,55 @@
 // import "./scripts/chartrf.js";
-import Data from "./scripts/office2.json";
+import "./scripts/tradeselect.js";
+import Data from "./scripts/office.json";
+import { _ } from "core-js";
 
-// CREATE SVG
-let HEIGHT = 500;
-let WIDTH = 500;
-let margin = { top: 30, right: 0, bottom: 30, left: 30 };
-let svg = d3
+// document.addEventListener("DOMContentLoaded", () => {
+const width = 800;
+const height = 400;
+const margin = { top: 50, bottom: 50, left: 50, right: 50 };
+
+const svg = d3
   .select("#main-chart")
   .append("svg")
-  .attr("height", HEIGHT - margin.top - margin.bottom)
-  .attr("width", WIDTH - margin.left - margin.right)
-  .attr("transform", "translate(" + 100 + "," + 100 + ")");
+  .attr("height", height - margin.top - margin.bottom)
+  .attr("width", width - margin.left - margin.right)
+  .attr("viewbox", [0, 0, width, height]);
 
-// CREATING Y-AXIS
-let yScale = d3.scaleLinear().range([HEIGHT, 0]);
+const x = d3
+  .scaleBand()
+  .domain(d3.range(Data.length))
+  .range([margin.left, width - margin.right])
+  .padding(0.1);
 
-function createAxisLeft(yAxis) {
-  yScale.domain([0, d3.max(yAxis)]).nice();
+const y = d3
+  .scaleLinear()
+  .domain([0, 100])
+  .range([height - margin.bottom, margin.top]);
 
-  svg.append("g").call(d3.axisLeft(yScale));
+svg
+  .append("g")
+  .attr("fill", "royalblue")
+  .selectAll("rect")
+  .data(Data)
+  .join("rect")
+  .attr("x", (d, i) => x(i))
+  .attr("y", (d) => y(d.rate))
+  .attr("height", (d) => y(0) - y(d.rate))
+  .attr("width", x.bandwidth());
+
+function xAxis(g) {
+  g.attr("transform", "translate(0, $(height-marginBottom})")
+    .call(d3.axisBottom(x).tickFormat((i) => Data[i].trade))
+    .attr("font-size", "5px");
 }
 
-//CREATING X-AXIS
-let xScale = d3.scaleBand().range([0, WIDTH]).padding(0.2);
-
-function createAxisBottom(xAxis) {
-  xScale.domain(xAxis).nice();
-
-  const text = svg
-    .append("g")
-    .attr("transform", `translate(0, 500)`)
-    .call(d3.axisBottom(xScale));
+function yAxis(g) {
+  g.attr("transform", "translate(${margin.left}, 0)")
+    .call(d3.axisLeft(y).ticks(null, Data.format))
+    .attr("font-size", "5px");
 }
 
-//CREATING BARS
-function createBars(data) {
-  let bars = svg
-    .selectAll(".bars")
-    .data(data, (d) => d.trade)
-    .enter()
-    .append("g")
-    .attr("class", "bars")
-    .style("opacity", 1);
-
-  bars
-    .append("rect")
-    .attr("class", "bar")
-    .attr("x", (d) => xScale(d.trade))
-    .attr("y", (d) => yScale(0))
-    .attr("width", xScale.bandwidth())
-    .attr("height", 0)
-    .style("fill", "steelblue")
-    .transition()
-    .duration(750)
-    .attr("y", (d) => yScale(d.rate))
-    .attr("height", (d) => HEIGHT - yScale(d.rate));
-}
-
-// user input event listener / set input variables
-let form = document.getElementById("user-input");
-if (form) form.addEventListener("submit", createBudget);
-
-// user input event handler
-function createBudget(e) {
-  e.preventDefault();
-  const squareFootage = document.getElementById("sf").value;
-  const budget = document.getElementById("budget").value;
-
-  // define xAxis and yAxis
-  const xAxis = [];
-  const yAxis = [];
-  Data.forEach((el) => {
-    xAxis.push(el.trade);
-    yAxis.push(el.rate);
-  });
-
-  // y-Axis values
-  for (let i = 0; i < yAxis.length; i++) {
-    yAxis[i] *= squareFootage;
-  }
-
-  createAxisLeft(yAxis);
-  createAxisBottom(xAxis);
-  createBars(Data);
-
-  console.log(yAxis);
-  console.log(xAxis);
-  console.log(yScale);
-  console.log(xScale);
-}
+svg.append("g").call(yAxis);
+svg.append("g").call(xAxis);
+svg.node();
+// });
