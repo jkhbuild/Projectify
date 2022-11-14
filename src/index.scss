@@ -1,7 +1,7 @@
 @import "./styles/reset.scss";
 
 body {
-    background-color: lavenderblush;
+    background-color: rgb(201, 201, 201);
 }
 
 #top-page {
@@ -15,9 +15,9 @@ body {
 
 #mid-page {
     display: flex;
-    flex-direction: row;
+    // flex-direction: row;
+    flex-flow: wrap;
 }
-
 
 .sidebar {
     color: white;
@@ -31,23 +31,54 @@ body {
     text-align: center
 }
 
-.sidebar ul{
+.sidebar ul {
     margin-top: auto;
     display: flex;
     flex-direction: column;
 }
 
-.sidebar ul li{
-    margin-top: 15px; 
+.sidebar ul li {
+    margin-top: 15px;
 }
 
-.userinput {
+#left-panel {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 15px;
+    padding-right: 20px;
+}
+
+svg {
+    margin: 0;
+}
+
+.main-chart {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border: rgb(10, 10, 95);
+    border-width: 2px;
+    padding: 0;
+}
+
+.user-input {
     display: block;
     position: relative;
 }
 
-.main-chart {
-    border:rgb(10, 10, 95);
-    border-width: 2px;
+.trade-selector {
+    height: 400px;
+    width: 400px;
+    display: flex;
+    flex-flow: wrap
 }
+
+.trade-selector .trade {
+    font-family: sans-serif;
+    background-color: rgb(10, 10, 95);
+}
+
 

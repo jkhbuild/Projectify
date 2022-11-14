@@ -4,7 +4,7 @@ import Data from "./scripts/office2.json";
 // CREATE SVG
 let HEIGHT = 500;
 let WIDTH = 500;
-let margin = { top: 30, right: 0, bottom: 60, left: 30 };
+let margin = { top: 30, right: 0, bottom: 30, left: 30 };
 let svg = d3
   .select("#main-chart")
   .append("svg")
@@ -13,7 +13,7 @@ let svg = d3
   .attr("transform", "translate(" + 100 + "," + 100 + ")");
 
 // CREATING Y-AXIS
-let yScale = d3.scaleLinear().range([500, 0]);
+let yScale = d3.scaleLinear().range([HEIGHT, 0]);
 
 function createAxisLeft(yAxis) {
   yScale.domain([0, d3.max(yAxis)]).nice();
@@ -25,7 +25,7 @@ function createAxisLeft(yAxis) {
 let xScale = d3.scaleBand().range([0, WIDTH]).padding(0.2);
 
 function createAxisBottom(xAxis) {
-  xScale.domain(xAxis);
+  xScale.domain(xAxis).nice();
 
   const text = svg
     .append("g")
@@ -33,6 +33,7 @@ function createAxisBottom(xAxis) {
     .call(d3.axisBottom(xScale));
 }
 
+//CREATING BARS
 function createBars(data) {
   let bars = svg
     .selectAll(".bars")
@@ -73,13 +74,11 @@ function createBudget(e) {
     xAxis.push(el.trade);
     yAxis.push(el.rate);
   });
-  console.log(yAxis);
-  console.log(xAxis);
+
   // y-Axis values
   for (let i = 0; i < yAxis.length; i++) {
     yAxis[i] *= squareFootage;
   }
-  console.log(yAxis);
 
   createAxisLeft(yAxis);
   createAxisBottom(xAxis);
@@ -88,4 +87,5 @@ function createBudget(e) {
   console.log(yAxis);
   console.log(xAxis);
   console.log(yScale);
+  console.log(xScale);
 }
