@@ -52,13 +52,18 @@ body {
   background-color: lavenderblush;
 }
 
-.top-page {
+#top-page {
   display: block;
 }
 
-.top-page .title {
+#top-page .title {
   font-family: sans-serif;
   font-size: 20px;
+}
+
+#mid-page {
+  display: flex;
+  flex-direction: row;
 }
 
 .sidebar {
