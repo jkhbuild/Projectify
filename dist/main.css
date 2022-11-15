@@ -119,6 +119,7 @@ body {
 }
 
 .main-chart {
+  margin-top: 20px;
   display: flex;
   border: rgb(10, 10, 95) solid;
   border-width: 1px;
