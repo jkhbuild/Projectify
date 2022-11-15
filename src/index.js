@@ -30,15 +30,17 @@ svg
   .append("g")
   .attr("fill", "royalblue")
   .selectAll("rect")
-  .data(Data)
+  // .data(Data.sort((a,b) => d3.descending(a.rate, b.rate)))
   .join("rect")
   .attr("x", (d, i) => x(i))
   .attr("y", (d) => y(d.rate))
   .attr("height", (d) => y(0) - y(d.rate))
   .attr("width", x.bandwidth());
 
+console.log(margin.bottom);
+console.log(height);
 function xAxis(g) {
-  g.attr("transform", "translate(0, $(height-marginBottom})")
+  g.attr("transform", "translate(0, ${height - margin.bottom})")
     .call(d3.axisBottom(x).tickFormat((i) => Data[i].trade))
     .attr("font-size", "5px");
 }
