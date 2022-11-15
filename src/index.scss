@@ -15,8 +15,8 @@ body {
 
 #mid-page {
     display: flex;
-    // flex-direction: row;
-    flex-flow: wrap;
+    flex-direction: row;
+    flex-flow: nowrap;
 }
 
 .sidebar {
@@ -25,7 +25,6 @@ body {
     flex-direction: column;
     position: relative;
     width: 50px;
-    height: 1250px;
     background-color: rgb(10, 10, 95);
     font-family: sans-serif;
     text-align: center
@@ -45,7 +44,6 @@ body {
     width: 45%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
     align-items: center;
     padding-top: 15px;
     padding-right: 20px;
@@ -57,8 +55,6 @@ svg {
 
 .main-chart {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
     border: rgb(10, 10, 95);
     border-width: 2px;
     padding: 0;

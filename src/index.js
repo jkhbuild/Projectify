@@ -1,11 +1,10 @@
 // import "./scripts/chartrf.js";
 import "./scripts/tradeselect.js";
 import Data from "./scripts/office.json";
-import { _ } from "core-js";
+// import { _ } from "core-js";
 
-// document.addEventListener("DOMContentLoaded", () => {
 const width = 800;
-const height = 400;
+const height = 750;
 const margin = { top: 50, bottom: 50, left: 50, right: 50 };
 
 const svg = d3
@@ -13,7 +12,7 @@ const svg = d3
   .append("svg")
   .attr("height", height - margin.top - margin.bottom)
   .attr("width", width - margin.left - margin.right)
-  .attr("viewbox", [0, 0, width, height]);
+  .attr("viewBox", [0, 0, width, height]);
 
 const x = d3
   .scaleBand()
@@ -23,35 +22,44 @@ const x = d3
 
 const y = d3
   .scaleLinear()
-  .domain([0, 100])
+  .domain([0, d3.max(Data.map((e) => e.rate))])
   .range([height - margin.bottom, margin.top]);
 
 svg
   .append("g")
   .attr("fill", "royalblue")
   .selectAll("rect")
-  // .data(Data.sort((a,b) => d3.descending(a.rate, b.rate)))
+  .data(Data)
   .join("rect")
   .attr("x", (d, i) => x(i))
   .attr("y", (d) => y(d.rate))
   .attr("height", (d) => y(0) - y(d.rate))
   .attr("width", x.bandwidth());
 
-console.log(margin.bottom);
-console.log(height);
 function xAxis(g) {
-  g.attr("transform", "translate(0, ${height - margin.bottom})")
+  // g.attr("transform", "translate(0, ${height - margin.bottom})");
+  g.attr("transform", `translate(0, ${height - margin.bottom})`)
     .call(d3.axisBottom(x).tickFormat((i) => Data[i].trade))
-    .attr("font-size", "5px");
+    .attr("font-size", "12px");
 }
 
 function yAxis(g) {
-  g.attr("transform", "translate(${margin.left}, 0)")
+  g.attr("transform", `translate(${margin.left}, 0)`)
     .call(d3.axisLeft(y).ticks(null, Data.format))
-    .attr("font-size", "5px");
+    .attr("font-size", "16px");
 }
 
 svg.append("g").call(yAxis);
 svg.append("g").call(xAxis);
 svg.node();
-// });
+
+// user input event listener / set input variables
+let form = document.getElementById("user-input");
+if (form) form.addEventListener("submit", createBudget);
+
+// user input event handler
+function createBudget(e) {
+  e.preventDefault();
+  const squareFootage = document.getElementById("sf").value;
+  const budget = document.getElementById("budget").value;
+}
