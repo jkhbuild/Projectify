@@ -50,7 +50,7 @@ function excludeTrade(e) {
   console.log(Data);
   console.log(dup);
   chart.deleteChart();
-  chart.createChart(dup, squareFootage);
+  chart.updateChart(dup);
 }
 
 let tradesExcluded = document.getElementById("trades-excluded");

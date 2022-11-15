@@ -17,6 +17,10 @@ class Chart {
       data[i].rate *= sf;
     }
 
+    this.updateChart(data);
+  }
+
+  updateChart(data) {
     this.svg = d3
       .select("#main-chart")
       .append("svg")
