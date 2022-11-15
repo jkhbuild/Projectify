@@ -12,7 +12,6 @@
     <script src="./dist/main.js" defer></script>
     <title>Project Name</title>
 </head>
-
 <body>
     <div id="top-page">
         <h1 class="title">Projectify</h1>
@@ -40,29 +39,33 @@
             </div>
         </div>
         <div id="left-panel">
-            <div id="trades-selected">
-            </div>
             <div id="main-chart">
             </div>
-
-            <div id="trade-selector">
-                <button class="general requirements">Gen Req</button>
-                <button class="demolition">Demo</button>
-                <button class="concrete">Conc</button>
-                <button class="masonry">Mas</button>
-                <button class="metals">Mtls</button>
-                <button class="woods">Woods</button>
-                <button class="thermal">Therm</button>
-                <button class="finishes">Fins</button>
-                <button class="specialties">Spec</button>
-                <button class="furnishing">Furn</button>
-                <button class="special construction">Spec Cnst</button>
-                <button class="conveying systems">Conv Sys</button>
-                <button class="mechanical">Mech</button>
-                <button class="plumbing">Plbg</button>
-                <button class="electrical">Elec</button>
-                <button class="fire suppression">FP</button>
+            <div id="trades">
+                <div id="trade-selector">
+                    <h2 class="selector-header">Selected Trades - click to exclude</h2>
+                    <button id="Gen Req" class="trade">Gen Req</button>
+                    <button id="Demo" class="trade">Demo</button>
+                    <button id="Conc" class="trade">Conc</button>
+                    <button id="Mas" class="trade">Mas</button>
+                    <button id="Mtls" class="trade">Mtls</button>
+                    <button id="Woods" class="trade">Woods</button>
+                    <button id="Therm" class="trade">Therm</button>
+                    <button id="Fins" class="trade">Fins</button>
+                    <button id="Spec" class="trade">Spec</button>
+                    <button id="Furn" class="trade">Furn</button>
+                    <button id="Spec Cnst" class="trade">Spec Cnst</button>
+                    <button id="Conv"class="trade">Conv Sys</button>
+                    <button id="Mech" class="trade">Mech</button>
+                    <button id="Plbg" class="trade">Plbg</button>
+                    <button id="Elec" class="trade">Elec</button>
+                    <button id="FP" class="trade">FP</button>
+                </div>
+                <div id="trades-excluded">
+                    <h2 id="excluded-header">Excluded Trades - click to include</h2>
+                </div>
             </div>
+
         </div>
     </div>
 

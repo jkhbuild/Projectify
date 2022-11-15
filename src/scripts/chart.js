@@ -1,4 +1,6 @@
 import Data from "./office.json";
+import Data2 from "./office.json";
+import dupData from "./data.js";
 // const width = 800;
 // const height = 750;
 // const margin = { top: 50, bottom: 50, left: 50, right: 50 };
@@ -15,8 +17,6 @@ class Chart {
       data[i].rate *= sf;
     }
 
-    console.log(data);
-
     this.svg = d3
       .select("#main-chart")
       .append("svg")
@@ -32,7 +32,7 @@ class Chart {
 
     this.y = d3
       .scaleLinear()
-      .domain([0, d3.max(Data.map((e) => e.rate))])
+      .domain([0, d3.max(data.map((e) => e.rate))])
       .range([this.height - this.margin.bottom, this.margin.top]);
 
     this.svg
@@ -49,12 +49,10 @@ class Chart {
     function xAxis(g) {
       g.attr("transform", `translate(0, ${this.height - this.margin.bottom})`)
         .call(d3.axisBottom(this.x).tickFormat((i) => data[i].trade))
-        .attr("font-size", "12px");
+        .attr("font-size", "15px");
     }
-    console.log(this.margin);
-    console.log(this.margin.left);
+
     function yAxis(g) {
-      console.log(g);
       g.attr("transform", `translate(${this.margin.left}, 0)`)
         .call(d3.axisLeft(this.y).ticks(null, data.format))
         .attr("font-size", "12px");
@@ -63,6 +61,19 @@ class Chart {
     this.svg.append("g").call(xAxis.bind(this));
     this.svg.append("g").call(yAxis.bind(this));
     this.svg.node();
+  }
+
+  deleteChart() {
+    let mainChartDiv = document.getElementById("main-chart");
+    mainChartDiv.innerHTML = "";
+  }
+
+  getTotal(data) {
+    let total = 0;
+    for (let i = 0; i < data.length; i++) {
+      total += data[i].rate;
+    }
+    return total;
   }
 }
 

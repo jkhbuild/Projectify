@@ -1,12 +1,24 @@
-let tradeSelected = document.getElementById("trades-selected");
-let trades = document.getElementById("trade-selector");
-if (trades) trades.addEventListener("click", addTrade);
+const tradesExcludedDiv = document.getElementById("trades-excluded");
+const tradesSelectedDiv = document.getElementById("trade-selector");
 
-console.log(tradeSelected);
-console.log(trades);
-function addTrade(e) {
-  console.log(e.target.id);
-  tradeSelected.appendChild(trades);
-  tradeSelected.removeAttribute(e.target.id);
-  console.log(tradeSelected);
+if (tradesSelectedDiv)
+  tradesSelectedDiv.addEventListener("click", excludeTrade);
+
+function excludeTrade(e) {
+  let clicked = e.target;
+  console.log(clicked.className);
+  if (clicked.className === "trade") {
+    tradesExcludedDiv.appendChild(e.target);
+  }
+}
+
+let tradesExcluded = document.getElementById("trades-excluded");
+if (tradesExcluded) tradesExcluded.addEventListener("click", includeTrade);
+
+function includeTrade(e) {
+  let clicked = e.target;
+  console.log(clicked.classList);
+  if (clicked.className === "trade") {
+    tradesSelectedDiv.appendChild(e.target);
+  }
 }
