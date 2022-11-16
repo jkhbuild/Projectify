@@ -14,24 +14,42 @@
 </head>
 <body>
     <div id="top-page">
-        <h1 class="title">Projectify</h1>
+        <div id="top-left">
+            <h1 class="title">Projectify</h1>
 
-        <div class="form-container">
-             <form id="user-input">
-                <label for="">Square Footage:</label>
-                <input type="text" id="sf" required>
-                <label for="">Budget:</label>
-                <input type="text" id="budget" required>
-                <button type="submit" id="user-input-button">Projectify!</button>
-                <button type="button" id="reset-button">Reset</button>
-            </form>
+            <div class="form-container">
+                <form id="user-input">
+                    <label for="">Square Footage:</label>
+                    <input type="text" id="sf" required>
+                    <label for="">Budget:</label>
+                    <input type="text" id="budget" required>
+                    <button type="submit" id="user-input-button">Projectify!</button>
+                    <button type="button" id="reset-button">Reset</button>
+                </form>
+            </div>
         </div>
-
+        <div id ="top right">
+            <div id="totals-display">
+                <div id="total-display">
+                    <label id="total">Total:</label>
+                </div>
+                <div id="budget-display">
+                    <label id="budget">Budget:</label>
+                </div>
+                <div id="delta-display">
+                    <label id="delta">Delta:</label>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div id="mid-page">
         <div class="sidebar">
-            <div class="bottom-sidebar">
+            <div id="top-sidebar">
+                <p><i class="fa-solid fa-location-question fa-xl"></i></p>
+                <a href="https://www.linkedin.com/in/jhpond-45569272/"><i class="fa-solid fa-location-question fa-xl"></i></a>
+            </div>
+            <div id="bottom-sidebar">
                 <ul>
                     <li><a href="https://www.linkedin.com/in/jhpond-45569272/"><i class="fa-brands fa-linkedin fa-xl"></i></a></li>
                     <li><a href="https://github.com/jkhbuild"><i class="fa-brands fa-github fa-xl"></i></a></li>
@@ -69,14 +87,6 @@
 
         </div>
     </div>
-
-    <div class="subchart">
-    </div>
-
-    <div class="gauge">
-    </div>
-
-    <div id="main"></div>
 </body>
 
 </html>

@@ -72,13 +72,8 @@ class Chart {
     mainChartDiv.innerHTML = "";
   }
 
-  // resetChart() {
-  //   this.deleteChart();
-  //   let dup = dupData(Data);
-  //   this.createChart(dup);
-  // }
-
   getTotal(data) {
+    const totaldiv = document.getElementById("total");
     let total = 0;
     for (let i = 0; i < data.length; i++) {
       total += data[i].rate;

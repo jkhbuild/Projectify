@@ -7,8 +7,8 @@ body {
 }
 
 #top-page {
-    display: block;
-    
+    display: flex;
+    justify-content: space-between;
 }
 
 #top-page .title {
@@ -20,6 +20,7 @@ body {
 
 #top-page #user-input {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
 }
 
 #top-page #user-input input{
@@ -32,10 +33,27 @@ body {
 #top-page #user-input button {
     background-color: lightgrey;
     color: black;
-    width: 70px;
+    width: 85px;
     border: 1px solid;
     border-color: black;
     text-align: center;
+}
+
+#top-page #top-left{
+    display: flex;
+    flex-direction: column;
+}
+
+#top-page #top-right{
+    display: flex;
+    flex-direction: column;
+}
+
+#totals-display {
+    border: 1px solid;
+    border-color: black;
+    text-align: left;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 #mid-page {
@@ -48,19 +66,25 @@ body {
     color: white;
     display: flex;
     flex-direction: column;
-    width: 50px;
-    background-color: rgb(10, 10, 95);
+    justify-content: space-between;
+    width: 55px;
+    background-color: #0D2557;
     text-align: center;
-    border-radius: 0px, 8px, 8px, 0px;
 }
 
-.sidebar ul {
-    margin-top: auto;
+.sidebar #top-sidebar {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
-.sidebar ul li {
+.sidebar #bottom-sidebar {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.sidebar #bottom-sidebar ul li {
     margin-top: 15px;
 }
 
