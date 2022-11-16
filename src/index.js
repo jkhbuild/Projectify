@@ -21,16 +21,18 @@ dup = dupData(Data);
 let form = document.getElementById("user-input");
 if (form) form.addEventListener("submit", createBudget);
 let squareFootage;
+let budget;
 
 // user input event handler
 function createBudget(e) {
   e.preventDefault();
   squareFootage = document.getElementById("sf").value;
-  const budget = document.getElementById("budget").value;
+  budget = document.getElementById("budget").value;
   resetTrades();
   chart.deleteChart();
   dup = dupData(Data);
   chart.createChart(dup, squareFootage);
+  chart.getTotal(dup, budget);
 }
 
 //user selection event listener - exclude x-Axis category
@@ -52,6 +54,7 @@ function excludeTrade(e) {
     }
     chart.deleteChart();
     chart.updateChart(dup);
+    chart.getTotal(dup, budget);
   }
 }
 
@@ -74,6 +77,7 @@ function includeTrade(e) {
     }
     chart.deleteChart();
     chart.updateChart(dup);
+    chart.getTotal(dup, budget);
   }
 }
 

@@ -75,17 +75,17 @@ body {
 .sidebar #top-sidebar {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    margin-top: 20px;
 }
 
 .sidebar #bottom-sidebar {
     display: flex;
     flex-direction: column;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
-.sidebar #bottom-sidebar ul li {
-    margin-top: 15px;
+.sidebar #bottom-sidebar li {
+    margin-top: 20px;
 }
 
 #left-panel {

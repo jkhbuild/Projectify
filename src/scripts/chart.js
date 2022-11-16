@@ -72,13 +72,24 @@ class Chart {
     mainChartDiv.innerHTML = "";
   }
 
-  getTotal(data) {
-    const totaldiv = document.getElementById("total");
+  getTotal(data, budget) {
+    const totaldiv = document.getElementById("total-disp");
+    const budgetdiv = document.getElementById("budget-disp");
+    const deltadiv = document.getElementById("delta-disp");
     let total = 0;
     for (let i = 0; i < data.length; i++) {
       total += data[i].rate;
     }
-    return total;
+
+    console.log(total);
+    console.log(budget);
+    const numFor = Intl.NumberFormat("en-US");
+    const newTotal = numFor.format(total);
+    const newBudget = numFor.format(budget);
+    const newDelta = numFor.format(total - budget);
+    totaldiv.innerHTML = `TOTAL:$${newTotal}`;
+    budgetdiv.innerHTML = `BUDGET: $${newBudget}`;
+    deltadiv.innerHTML = `DELTA: $${newDelta}`;
   }
 }
 
