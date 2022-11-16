@@ -4,20 +4,24 @@ import Data from "./scripts/office.json";
 import Data2 from "./scripts/office.json";
 import Chart from "./scripts/chart.js";
 import dupData from "./scripts/data.js";
+// import { excludeTrade, includeTrade } from "./scripts/tradeselect.js";
 
+//creating an empty chart
 let dup = dupData(Data);
 
-const width = 1400;
+const width = 1500;
 const height = 1000;
 const margin = { top: 50, bottom: 50, left: 50, right: 50 };
 
 let chart = new Chart(width, height, margin);
 chart.createChart(dup);
 dup = dupData(Data);
+
 // user input event listener / set input variables
 let form = document.getElementById("user-input");
 if (form) form.addEventListener("submit", createBudget);
 let squareFootage;
+
 // user input event handler
 function createBudget(e) {
   e.preventDefault();
@@ -25,42 +29,40 @@ function createBudget(e) {
   const budget = document.getElementById("budget").value;
 
   chart.deleteChart();
-  let dup = dupData(Data);
+  dup = dupData(Data);
   chart.createChart(dup, squareFootage);
 }
 
+//user selection event listener - exclude x-Axis category
 const tradesExcludedDiv = document.getElementById("trades-excluded");
 const tradesSelectedDiv = document.getElementById("trade-selector");
 let excluded = [];
-
 if (tradesSelectedDiv) {
   tradesSelectedDiv.addEventListener("click", excludeTrade);
 }
-
 function excludeTrade(e) {
   let clicked = e.target;
   if (clicked.className === "trade") {
+    console.log(dup);
     tradesExcludedDiv.appendChild(e.target);
-
     for (let i = 0; i < dup.length; i++) {
       if (dup[i].trade === clicked.id) {
         excluded.push(dup[i]);
-        dup = dup.splice(0, i).concat(dup.splice(i + 1));
+        dup = dup.slice(0, i).concat(dup.slice(i + 1));
         console.log(excluded);
+        console.log(dup);
       }
     }
     chart.deleteChart();
-    if (dup.length === 15) {
-      chart.createChart(dup, squareFootage);
-    } else {
-      chart.updateChart(dup);
-    }
+    chart.updateChart(dup);
   }
 }
 
+//user selection event listener - include x-Axis category
 let tradesExcluded = document.getElementById("trades-excluded");
-if (tradesExcluded) tradesExcluded.addEventListener("click", includeTrade);
-
+if (tradesExcluded) {
+  tradesExcluded.addEventListener("click", includeTrade);
+}
 function includeTrade(e) {
   let clicked = e.target;
   if (clicked.className === "trade") {
@@ -68,7 +70,9 @@ function includeTrade(e) {
     for (let i = 0; i < excluded.length; i++) {
       if (excluded[i].trade === clicked.id) {
         dup.push(excluded[i]);
-        excluded = excluded.splice(0, i).concat(excluded.splice(i + 1));
+        excluded = excluded.slice(0, i).concat(excluded.slice(i + 1));
+        console.log(excluded);
+        console.log(dup);
       }
     }
     chart.deleteChart();

@@ -3,7 +3,7 @@
         { "trade": "Demo", "rate": 10 },
         { "trade": "Conc", "rate": 5 },
         { "trade": "Mas", "rate": 4 },
-        { "trade": "Mtls", "rate": 50 },
+        { "trade": "Mtls", "rate": 15 },
         { "trade": "Woods", "rate": 20 },
         { "trade": "Therm", "rate": 20 },
         { "trade": "Fins", "rate": 18 },

@@ -81,6 +81,7 @@ body {
   width: 70px;
   border: 1px solid;
   border-color: black;
+  text-align: center;
 }
 
 #mid-page {
@@ -124,6 +125,10 @@ body {
   border: rgb(10, 10, 95) solid;
   border-width: 1px;
   padding: 0;
+}
+
+svg {
+  justify-content: center;
 }
 
 .user-input {

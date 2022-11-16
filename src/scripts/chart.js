@@ -25,7 +25,7 @@ class Chart {
       .select("#main-chart")
       .append("svg")
       .attr("height", this.height - this.margin.top - this.margin.bottom)
-      .attr("width", this.width - this.margin.left - this.margin.right)
+      .attr("width", this.width)
       .attr("viewBox", [0, 0, this.width, this.height]);
 
     this.x = d3
@@ -53,13 +53,13 @@ class Chart {
     function xAxis(g) {
       g.attr("transform", `translate(0, ${this.height - this.margin.bottom})`)
         .call(d3.axisBottom(this.x).tickFormat((i) => data[i].trade))
-        .attr("font-size", "15px");
+        .attr("font-size", "16px");
     }
 
     function yAxis(g) {
       g.attr("transform", `translate(${this.margin.left}, 0)`)
         .call(d3.axisLeft(this.y).ticks(null, data.format))
-        .attr("font-size", "12px");
+        .attr("font-size", "18px");
     }
 
     this.svg.append("g").call(xAxis.bind(this));
@@ -70,6 +70,10 @@ class Chart {
   deleteChart() {
     let mainChartDiv = document.getElementById("main-chart");
     mainChartDiv.innerHTML = "";
+  }
+
+  resetChart() {
+    this.deleteChart();
   }
 
   getTotal(data) {
