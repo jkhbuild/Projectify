@@ -89,7 +89,8 @@ function includeTrade(e) {
 // moves all excluded trades back into included.
 function resetTrades() {
   for (let i = 0; i < excluded.length; i++) {
-    tradesSelectedDiv.appendChild(tradesExcludedDiv.firstChild);
+    move = document.getElementById(excluded[i].trade);
+    tradesSelectedDiv.appendChild(move);
   }
   excluded = [];
 }

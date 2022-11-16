@@ -27,7 +27,7 @@ function createBudget(e) {
   e.preventDefault();
   squareFootage = document.getElementById("sf").value;
   const budget = document.getElementById("budget").value;
-
+  resetTrades();
   chart.deleteChart();
   dup = dupData(Data);
   chart.createChart(dup, squareFootage);
@@ -43,14 +43,11 @@ if (tradesSelectedDiv) {
 function excludeTrade(e) {
   let clicked = e.target;
   if (clicked.className === "trade") {
-    console.log(dup);
     tradesExcludedDiv.appendChild(e.target);
     for (let i = 0; i < dup.length; i++) {
       if (dup[i].trade === clicked.id) {
         excluded.push(dup[i]);
         dup = dup.slice(0, i).concat(dup.slice(i + 1));
-        console.log(excluded);
-        console.log(dup);
       }
     }
     chart.deleteChart();
@@ -78,4 +75,24 @@ function includeTrade(e) {
     chart.deleteChart();
     chart.updateChart(dup);
   }
+}
+
+function resetTrades() {
+  for (let i = 0; i < excluded.length; i++) {
+    let move = document.getElementById(excluded[i].trade);
+    tradesSelectedDiv.appendChild(move);
+  }
+  excluded = [];
+}
+
+let reset = document.getElementById("reset-button");
+if (reset) {
+  reset.addEventListener("click", resetChart);
+}
+
+function resetChart(e) {
+  chart.deleteChart();
+  dup = dupData(Data);
+  chart.createChart(dup);
+  resetTrades();
 }

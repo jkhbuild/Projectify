@@ -72,9 +72,11 @@ class Chart {
     mainChartDiv.innerHTML = "";
   }
 
-  resetChart() {
-    this.deleteChart();
-  }
+  // resetChart() {
+  //   this.deleteChart();
+  //   let dup = dupData(Data);
+  //   this.createChart(dup);
+  // }
 
   getTotal(data) {
     let total = 0;
