@@ -87,7 +87,7 @@ class Chart {
     const newTotal = numFor.format(total);
     const newBudget = numFor.format(budget);
     const newDelta = numFor.format(total - budget);
-    totaldiv.innerHTML = `TOTAL:$${newTotal}`;
+    totaldiv.innerHTML = `TOTAL: $${newTotal}`;
     budgetdiv.innerHTML = `BUDGET: $${newBudget}`;
     deltadiv.innerHTML = `DELTA: $${newDelta}`;
   }

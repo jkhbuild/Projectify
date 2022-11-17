@@ -31,7 +31,7 @@ window.onclick = function (event) {
 let dup = dupData(Data);
 
 const width = 1500;
-const height = 850;
+const height = 760;
 const margin = { top: 50, bottom: 50, left: 50, right: 50 };
 
 let chart = new Chart(width, height, margin);
