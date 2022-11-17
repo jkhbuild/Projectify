@@ -88,6 +88,13 @@ class Chart {
     totaldiv.innerHTML = `$${newTotal}`;
     budgetdiv.innerHTML = `$${newBudget}`;
     deltadiv.innerHTML = `$${newDelta}`;
+
+    const deltaContainer = document.getElementById("delta-display-container");
+    if (total - budget > 0) {
+      deltaContainer.style.borderBottomColor = "red";
+    } else {
+      deltaContainer.style.borderBottomColor = "green";
+    }
   }
 }
 

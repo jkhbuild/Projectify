@@ -235,6 +235,8 @@ svg {
     height: 90%;
     border-color: black;
     border: 1px solid;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px
 }
 
 #user-input {
@@ -296,6 +298,7 @@ svg {
     padding: 10px;
     margin-top: 10px;
     border-radius: 10px;
+    background-color: rgb(255, 255, 255, .5);
 }
 
 .display-title {
