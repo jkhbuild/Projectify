@@ -101,7 +101,32 @@ function excludeTrade(e) {
 }
 ```
 
-3. Be able to adjust bars for budgeted costs to meet projected cost
+3. Re-include removed trades.
+
+```js
+let tradesExcluded = document.getElementById("trades-excluded");
+if (tradesExcluded) {
+  tradesExcluded.addEventListener("click", includeTrade);
+}
+function includeTrade(e) {
+  let clicked = e.target;
+  if (clicked.className === "trade") {
+    tradesSelectedDiv.appendChild(e.target);
+    for (let i = 0; i < excluded.length; i++) {
+      if (excluded[i].trade === clicked.id) {
+        dup.push(excluded[i]);
+        excluded = excluded.slice(0, i).concat(excluded.slice(i + 1));
+        console.log(excluded);
+        console.log(dup);
+      }
+    }
+    chart.deleteChart();
+    chart.updateChart(dup);
+    chart.getTotal(dup, budget);
+  }
+}
+```
+
 4. Display only trades that are selected
 5. Toggle between different project types
 6. Gauge displaying percent-over-budget
