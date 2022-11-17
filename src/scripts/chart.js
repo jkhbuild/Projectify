@@ -21,6 +21,7 @@ class Chart {
   }
 
   updateChart(data) {
+    const numFor = Intl.NumberFormat("en-US");
     this.svg = d3
       .select("#main-chart")
       .append("svg")
@@ -62,11 +63,11 @@ class Chart {
         this.tooltip
           .style("opacity", 0.8)
           .html(
-            `Total: $ ${i.rate}` +
+            `Total: $ ${numFor.format(i.rate)}` +
               "</br>" +
-              `Material: $ ${Math.floor(i.rate * 0.4)}` +
+              `Material: $ ${numFor.format(Math.floor(i.rate * 0.4))}` +
               "</br>" +
-              `Labor: $ ${Math.floor(i.rate * 0.6)}`
+              `Labor: $ ${numFor.format(Math.floor(i.rate * 0.6))}`
           )
           .style("left", `${d.x + 15}px`)
           .style("top", `${d.y + 15}px`)
