@@ -9,9 +9,6 @@ import dupData from "./scripts/data.js";
 const modal = document.getElementById("user-instructions");
 const button = document.getElementById("modal-button");
 const closeButton = document.getElementById("close-button");
-console.log(modal);
-console.log(button);
-console.log(closeButton);
 
 button.onclick = function () {
   modal.style.display = "block";

@@ -228,7 +228,7 @@ svg {
 
 #right-panel {
     width: 15%;
-    height: 80%;
+    height: 90%;
     border-color: black;
     border: 1px solid;
 }
@@ -239,8 +239,9 @@ svg {
     width: 100%;
     margin-top: 12px;
     margin-bottom: 5px;
-    margin-left: 10px;
-    font-size: 22px;
+    font-size: 25px;
+    justify-content: center;
+    align-items: center;
 }
 
 #user-input input {
@@ -253,8 +254,8 @@ svg {
 #user-input button {
     background-color: #0D2557;
     color: white;
-    width: 40%;
-    height: 110%;
+    width: 55%;
+    height: 28px;
     border: 1px solid;
     border-color: white;
     text-align: center;
@@ -268,13 +269,34 @@ svg {
     transform: scale(1.1);
 }
 
-
-#totals-display {
+#totals-display-wrapper{
+    display: flex;
+    flex-direction: column;
     margin-top: 20px;
     margin-bottom: 12px;
-    margin-left: 10px;
-    text-align: left;
     font-size: 22px;
+    // justify-content: center;
+    align-items: center;
+    height: 400px;
+}
+
+.display-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    width: 80%;
+    border: 1px solid;
+    border-bottom: 10px solid #0D2557;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+.display-title {
+    text-decoration: underline;
+    font-weight: bold;
 }
 
 

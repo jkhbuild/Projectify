@@ -15,18 +15,7 @@
 </head>
 <body>
     <div id="top-page">
-        <!-- <div id="top-left"> -->
             <h1 class="title">Projectify</h1>
-        <!-- </div> -->
-        <!-- <div id ="top right">
-            <div id="totals-display">
-                <ul>
-                    <li id="total-disp"></li>
-                    <li id="budget-disp"></li>
-                    <li id="delta-disp"></li>
-                </ul>
-            </div>
-        </div> -->
     </div>
 
     <div id="mid-page">
@@ -82,12 +71,19 @@
                 </form>
             </div>
 
-            <div id="totals-display">
-                <ul>
-                    <li id="total-disp"></li>
-                    <li id="budget-disp"></li>
-                    <li id="delta-disp"></li>
-                </ul>
+            <div id="totals-display-wrapper">
+                <div class="display-container">
+                    <span class="display-title"> Total </span>
+                    <span id="total-value">$0.00</span>
+                </div>
+                <div class="display-container">
+                    <span class="display-title"> Budget </span>
+                    <span id="budget-value">$0.00</span>
+                </div>
+                <div class="display-container">
+                    <span class="display-title"> Delta </span>
+                    <span id="delta-value">$0.00</span>
+                </div>
             </div>
         </div>
     </div>

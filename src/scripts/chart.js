@@ -73,23 +73,26 @@ class Chart {
   }
 
   getTotal(data, budget) {
-    const totaldiv = document.getElementById("total-disp");
-    const budgetdiv = document.getElementById("budget-disp");
-    const deltadiv = document.getElementById("delta-disp");
+    const totaldiv = document.getElementById("total-value");
+    const budgetdiv = document.getElementById("budget-value");
+    const deltadiv = document.getElementById("delta-value");
+    console.log(totaldiv);
+    console.log(budgetdiv);
+    console.log(deltadiv);
     let total = 0;
     for (let i = 0; i < data.length; i++) {
       total += data[i].rate;
     }
 
-    console.log(total);
-    console.log(budget);
+    console.log(totaldiv);
+    console.log(budgetdiv);
     const numFor = Intl.NumberFormat("en-US");
     const newTotal = numFor.format(total);
     const newBudget = numFor.format(budget);
     const newDelta = numFor.format(total - budget);
-    totaldiv.innerHTML = `TOTAL: $${newTotal}`;
-    budgetdiv.innerHTML = `BUDGET: $${newBudget}`;
-    deltadiv.innerHTML = `DELTA: $${newDelta}`;
+    totaldiv.innerHTML = `$${newTotal}`;
+    budgetdiv.innerHTML = `$${newBudget}`;
+    deltadiv.innerHTML = `$${newDelta}`;
   }
 }
 
