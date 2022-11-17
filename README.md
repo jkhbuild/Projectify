@@ -127,9 +127,51 @@ function includeTrade(e) {
 }
 ```
 
-4. Display only trades that are selected
-5. Toggle between different project types
-6. Gauge displaying percent-over-budget
+4. Reset graph to apply new user inputs. Trades are reset with the graph.
+
+```js
+function resetTrades() {
+  for (let i = 0; i < excluded.length; i++) {
+    let move = document.getElementById(excluded[i].trade);
+    tradesSelectedDiv.appendChild(move);
+  }
+  excluded = [];
+}
+
+let reset = document.getElementById("reset-button");
+if (reset) {
+  reset.addEventListener("click", resetChart);
+}
+
+function resetChart(e) {
+  chart.deleteChart();
+  dup = dupData(Data);
+  chart.createChart(dup);
+  resetTrades();
+}
+```
+
+5. Display totals and delta from budget.
+
+```js
+  getTotal(data, budget) {
+    const totaldiv = document.getElementById("total-value");
+    const budgetdiv = document.getElementById("budget-value");
+    const deltadiv = document.getElementById("delta-value");
+    let total = 0;
+    for (let i = 0; i < data.length; i++) {
+      total += data[i].rate;
+    }
+
+    const numFor = Intl.NumberFormat("en-US");
+    const newTotal = numFor.format(total);
+    const newBudget = numFor.format(budget);
+    const newDelta = numFor.format(total - budget);
+    totaldiv.innerHTML = `$${newTotal}`;
+    budgetdiv.innerHTML = `$${newBudget}`;
+    deltadiv.innerHTML = `$${newDelta}`;
+  }
+```
 
 ## TECHNOLOGIES
 
