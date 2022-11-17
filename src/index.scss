@@ -55,7 +55,7 @@ body {
 }
 
 #user-instructions {
-    display: none;
+    display: block;
     position: fixed;
     z-index: 1;
     left: 0;
@@ -63,6 +63,7 @@ body {
     width: 100%;
     height: 100%;
     overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4)
 }
 
 #modal-content {
@@ -72,6 +73,7 @@ body {
     border: 2px solid #0D2557;
     border-radius: 15px;
     width: 35%;
+    font-size: 20px;
     // background-image: url("https: //img.freepik.com/premium-photo/simple-white-background-with-smooth-lines-light-colors_476363-5558.jpg?w=1480") no-repeat center center fixed;
 }
 
