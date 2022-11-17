@@ -10,6 +10,10 @@ Project your project’s budget with projectify today!
 
 ![Interface](./assets/user_interface.png))
 
+## WIREFRAME
+
+![Wireframe](./assets/wireframe.png))
+
 ## FUNCTIONALITY
 
 1. Display projected costs on a bar chart
@@ -23,11 +27,7 @@ Project your project’s budget with projectify today!
 
 - Vanilla Javascript
 - Webpack
-- Javascript Libararies
-
-## WIREFRAME
-
-![Wireframe](./assets/wireframe.png))
+- D3 Library
 
 ## IMPLEMENTATION TIMELINE
 
