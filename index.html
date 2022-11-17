@@ -6,29 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="./dist/main.css" />
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
     <script src="https://kit.fontawesome.com/2687a23fd5.js" crossorigin="anonymous"></script>
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="./dist/main.js" defer></script>
-    <title>Project Name</title>
+    <title>Projectify</title>
 </head>
 <body>
     <div id="top-page">
-        <div id="top-left">
+        <!-- <div id="top-left"> -->
             <h1 class="title">Projectify</h1>
-
-            <div class="form-container">
-                <form id="user-input">
-                    <label for="">Square Footage:</label>
-                    <input type="text" id="sf" required>
-                    <label for="">Budget:</label>
-                    <input type="text" id="budget" required>
-                    <button type="submit" id="user-input-button">Projectify!</button>
-                    <button type="button" id="reset-button">Reset</button>
-                </form>
-            </div>
-        </div>
-        <div id ="top right">
+        <!-- </div> -->
+        <!-- <div id ="top right">
             <div id="totals-display">
                 <ul>
                     <li id="total-disp"></li>
@@ -36,13 +26,13 @@
                     <li id="delta-disp"></li>
                 </ul>
             </div>
-        </div>
+        </div> -->
     </div>
 
     <div id="mid-page">
         <div class="sidebar">
             <div id="top-sidebar">
-                <button id="modal"><i class="fa-solid fa-circle-info fa-2xl"></i></button>
+                <button id="modal-button"><i class="fa-solid fa-circle-info fa-2xl"></i></button>
             </div>
             <div id="bottom-sidebar">
                 <ul>
@@ -79,7 +69,42 @@
                     <h2 id="excluded-header">Excluded Trades - click to include</h2>
                 </div>
             </div>
+        </div>
+        <div id="right-panel">
+            <div class="form-container">
+                <form id="user-input">
+                    <label for="">Square Footage:</label>
+                    <input type="text" id="sf" required>
+                    <label for="">Budget:</label>
+                    <input type="text" id="budget" required>
+                    <button type="submit" id="user-input-button">Projectify!</button>
+                    <button type="button" id="reset-button">Reset</button>
+                </form>
+            </div>
 
+            <div id="totals-display">
+                <ul>
+                    <li id="total-disp"></li>
+                    <li id="budget-disp"></li>
+                    <li id="delta-disp"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="user-instructions" class="modal">
+        <div id="modal-content">
+            <button id="close-button"><i class="fa-solid fa-xmark fa-2xl"></i></button>
+            <p>Projectify s a single-page, construction budget generating webapp.</p>
+            <p>Predict project costs by inputting square footage of the project area and applying $/SF rates.</p>
+            <br>
+            <h2><b>User Instructions:</b></h2>
+            <ul>
+                <li>1) Enter Square Footage and Budget into the form at the top left. </li>
+                <li>2) Select applicable trades by clicking the grey buttons at the bottom of the page. </li>
+                <li>3) If you remove a trade by accident, re-add it by clicking on the assoicated red button. </li>
+                <li>4) Observe total projected cost and delta from your allowable budget at the top right.</li>
+                <li>5) Click reset to start over.</li>
+            </ul>
         </div>
     </div>
 </body>

@@ -6,11 +6,32 @@ import Chart from "./scripts/chart.js";
 import dupData from "./scripts/data.js";
 // import { excludeTrade, includeTrade } from "./scripts/tradeselect.js";
 
+const modal = document.getElementById("user-instructions");
+const button = document.getElementById("modal-button");
+const closeButton = document.getElementById("close-button");
+console.log(modal);
+console.log(button);
+console.log(closeButton);
+
+button.onclick = function () {
+  modal.style.display = "block";
+};
+
+closeButton.onclick = function () {
+  modal.style.display = "none";
+};
+
+window.onclick = function (event) {
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
+};
+
 //creating an empty chart
 let dup = dupData(Data);
 
 const width = 1500;
-const height = 1050;
+const height = 850;
 const margin = { top: 50, bottom: 50, left: 50, right: 50 };
 
 let chart = new Chart(width, height, margin);
