@@ -61,7 +61,13 @@ class Chart {
       .on("mousemove", (d, i) => {
         this.tooltip
           .style("opacity", 0.8)
-          .html(`$ ${i.rate}`)
+          .html(
+            `Total: $ ${i.rate}` +
+              "</br>" +
+              `Material: $ ${Math.floor(i.rate * 0.4)}` +
+              "</br>" +
+              `Labor: $ ${Math.floor(i.rate * 0.6)}`
+          )
           .style("left", `${d.x + 15}px`)
           .style("top", `${d.y + 15}px`)
           .style("border", "2px solid")
@@ -80,13 +86,13 @@ class Chart {
     function xAxis(g) {
       g.attr("transform", `translate(0, ${this.height - this.margin.bottom})`)
         .call(d3.axisBottom(this.x).tickFormat((i) => data[i].trade))
-        .attr("font-size", "16px");
+        .attr("font-size", "20px");
     }
 
     function yAxis(g) {
       g.attr("transform", `translate(${this.margin.left}, 0)`)
         .call(d3.axisLeft(this.y).ticks(null, data.format))
-        .attr("font-size", "18px");
+        .attr("font-size", "20px");
     }
 
     this.svg.append("g").call(xAxis.bind(this));
