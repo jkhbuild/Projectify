@@ -135,6 +135,11 @@ svg {
     justify-content: center;
 }
 
+.bar:hover {
+    fill: rgba(65, 105, 225, 0.745);
+}
+
+
 .user-input {
     display: block;
     position: relative;

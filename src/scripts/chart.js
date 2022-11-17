@@ -39,6 +39,14 @@ class Chart {
       .domain([0, d3.max(data.map((e) => e.rate))])
       .range([this.height - this.margin.bottom, this.margin.top]);
 
+    this.tooltip = d3
+      .select("#tooltip")
+      .style("opacity", 0)
+      .attr("class", "tooltip")
+      .style("background-color", "white")
+      .style("border-radius", "5px")
+      .style("position", "absolute");
+
     this.svg
       .append("g")
       .attr("fill", "royalblue")
@@ -48,7 +56,26 @@ class Chart {
       .attr("x", (d, i) => this.x(i))
       .attr("y", (d) => this.y(d.rate))
       .attr("height", (d) => this.y(0) - this.y(d.rate))
-      .attr("width", this.x.bandwidth());
+      .attr("width", this.x.bandwidth())
+      .attr("class", "bar")
+      .on("mousemove", (d, i) => {
+        this.tooltip
+          .style("opacity", 0.8)
+          .html(`$ ${i.rate}`)
+          .style("left", `${d.x + 15}px`)
+          .style("top", `${d.y + 15}px`)
+          .style("border", "2px solid")
+          .style("font-size", "22px");
+        // .style("left", `${d3.pointer(d)[0]}px`)
+        // .style("top", `${d3.pointer(d)[1]}px`);
+        console.log(d);
+      })
+      .on("mouseleave", (d) => {
+        this.tooltip.style("opacity", 0);
+      });
+    // .on("mousemove", function (d) {
+    //   d3.select("#tooltip");
+    // });
 
     function xAxis(g) {
       g.attr("transform", `translate(0, ${this.height - this.margin.bottom})`)
@@ -65,6 +92,7 @@ class Chart {
     this.svg.append("g").call(xAxis.bind(this));
     this.svg.append("g").call(yAxis.bind(this));
     this.svg.node();
+    console.log(this.svg.selectAll("rect"));
   }
 
   deleteChart() {
@@ -84,13 +112,13 @@ class Chart {
     const numFor = Intl.NumberFormat("en-US");
     const newTotal = numFor.format(total);
     const newBudget = numFor.format(budget);
-    const newDelta = numFor.format(total - budget);
+    const newDelta = numFor.format(budget - total);
     totaldiv.innerHTML = `$${newTotal}`;
     budgetdiv.innerHTML = `$${newBudget}`;
     deltadiv.innerHTML = `$${newDelta}`;
 
     const deltaContainer = document.getElementById("delta-display-container");
-    if (total - budget > 0) {
+    if (budget - total < 0) {
       deltaContainer.style.borderBottomColor = "red";
     } else {
       deltaContainer.style.borderBottomColor = "green";
