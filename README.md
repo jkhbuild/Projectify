@@ -16,7 +16,7 @@ Project your project’s budget with projectify today!
 
 ## FUNCTIONALITY
 
-1. Display projected costs on a bar chart
+1. Display projected costs on a bar chart using d3 libararies. The user's inputed square footage is multiplied across the rates provided in JSON.
 
 ```js
 createChart(data, sf = 0) {
@@ -75,7 +75,32 @@ createChart(data, sf = 0) {
   }
 ```
 
-2. Display budgeted costs on a bar chart
+2. Remove trades from the X-axis if not applicable to the project.
+
+```js
+const tradesExcludedDiv = document.getElementById("trades-excluded");
+const tradesSelectedDiv = document.getElementById("trade-selector");
+let excluded = [];
+if (tradesSelectedDiv) {
+  tradesSelectedDiv.addEventListener("click", excludeTrade);
+}
+function excludeTrade(e) {
+  let clicked = e.target;
+  if (clicked.className === "trade") {
+    tradesExcludedDiv.appendChild(e.target);
+    for (let i = 0; i < dup.length; i++) {
+      if (dup[i].trade === clicked.id) {
+        excluded.push(dup[i]);
+        dup = dup.slice(0, i).concat(dup.slice(i + 1));
+      }
+    }
+    chart.deleteChart();
+    chart.updateChart(dup);
+    chart.getTotal(dup, budget);
+  }
+}
+```
+
 3. Be able to adjust bars for budgeted costs to meet projected cost
 4. Display only trades that are selected
 5. Toggle between different project types
