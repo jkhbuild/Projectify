@@ -116,8 +116,6 @@ function includeTrade(e) {
       if (excluded[i].trade === clicked.id) {
         dup.push(excluded[i]);
         excluded = excluded.slice(0, i).concat(excluded.slice(i + 1));
-        console.log(excluded);
-        console.log(dup);
       }
     }
     chart.deleteChart();

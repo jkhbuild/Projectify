@@ -1,9 +1,9 @@
 import Data from "./office.json";
 import Data2 from "./office.json";
 import dupData from "./data.js";
-// const width = 800;
-// const height = 750;
-// const margin = { top: 50, bottom: 50, left: 50, right: 50 };
+const width = 800;
+const height = 750;
+const margin = { top: 50, bottom: 50, left: 50, right: 50 };
 
 class Chart {
   constructor(width, height, margin) {
@@ -99,7 +99,6 @@ class Chart {
     this.svg.append("g").call(xAxis.bind(this));
     this.svg.append("g").call(yAxis.bind(this));
     this.svg.node();
-    console.log(this.svg.selectAll("rect"));
   }
 
   deleteChart() {

@@ -48,14 +48,11 @@ import Chart from "./chart.js";
 function excludeTrade(e) {
   let clicked = e.target;
   if (clicked.className === "trade") {
-    console.log(dup);
     tradesExcludedDiv.appendChild(e.target);
     for (let i = 0; i < dup.length; i++) {
       if (dup[i].trade === clicked.id) {
         excluded.push(dup[i]);
         dup = dup.slice(0, i).concat(dup.slice(i + 1));
-        console.log(excluded);
-        console.log(dup);
       }
     }
     chart.deleteChart();
@@ -77,8 +74,6 @@ function includeTrade(e) {
       if (excluded[i].trade === clicked.id) {
         dup.push(excluded[i]);
         excluded = excluded.slice(0, i).concat(excluded.slice(i + 1));
-        console.log(excluded);
-        console.log(dup);
       }
     }
     chart.deleteChart();
