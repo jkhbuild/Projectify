@@ -80,6 +80,12 @@ class Chart {
       .on("mouseleave", (d) => {
         this.tooltip.style("opacity", 0);
       });
+
+    // this.svg
+    //   .append("text")
+    //   .attr("transform", "translate(" + w / 2 + " ," + (h - 10) + ")")
+    //   .style("text-anchor", "middle")
+    //   .text("Year");
     // .on("mousemove", function (d) {
     //   d3.select("#tooltip");
     // });
