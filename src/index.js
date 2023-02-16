@@ -1,10 +1,7 @@
-// import "./scripts/chartrf.js";
-// import "./scripts/tradeselect.js";
 import Data from "./scripts/office.json";
 import Data2 from "./scripts/office.json";
 import Chart from "./scripts/chart.js";
 import dupData from "./scripts/data.js";
-// import { excludeTrade, includeTrade } from "./scripts/tradeselect.js";
 
 const modal = document.getElementById("user-instructions");
 const button = document.getElementById("modal-button");

@@ -73,22 +73,11 @@ class Chart {
           .style("top", `${d.y + 15}px`)
           .style("border", "2px solid")
           .style("font-size", "22px");
-        // .style("left", `${d3.pointer(d)[0]}px`)
-        // .style("top", `${d3.pointer(d)[1]}px`);
         console.log(d);
       })
       .on("mouseleave", (d) => {
         this.tooltip.style("opacity", 0);
       });
-
-    // this.svg
-    //   .append("text")
-    //   .attr("transform", "translate(" + w / 2 + " ," + (h - 10) + ")")
-    //   .style("text-anchor", "middle")
-    //   .text("Year");
-    // .on("mousemove", function (d) {
-    //   d3.select("#tooltip");
-    // });
 
     function xAxis(g) {
       g.attr("transform", `translate(0, ${this.height - this.margin.bottom})`)
